@@ -1,0 +1,30 @@
+name:           LeyesNacionales
+version:        0.0.0.1
+description:    Utilidades para crear espejos de leyes Colombianas
+cabal-version:  >= 1.18
+build-type:     Simple
+license:        GPL-3
+license-file:   LICENSE
+author:         Ricardo Lanziano <arpunk@cryptolab.net>
+maintainer:     Ricardo Lanziano <arpunk@cryptolab.net>
+category:       Network
+stability:      Experimental
+homepage:       http://hub.darcs.net/arpunk/LeyesNacionales
+
+executable mirror-leyes
+    default-language: Haskell2010
+    main-is:          Main.hs
+    hs-source-dirs:   src
+    build-depends:    base > 4
+                    , bytestring
+                    , mtl
+                    , transformers
+                    , text
+                    , postgresql-simple
+                    , time
+                    , conduit
+                    , http-conduit
+                    , html-conduit
+                    , xml-conduit
+
+    ghc-options:      -threaded -O2
