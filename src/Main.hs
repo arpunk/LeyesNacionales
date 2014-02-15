@@ -39,7 +39,7 @@ createFileName raw = last $ split raw '/'
 
 downloadPdf :: T.Text -> IO ()
 downloadPdf link = C.runResourceT $ do
-  manager <- liftIO $ newManager def
+  manager <- liftIO $ newManager conduitManagerSettings
   req <- liftIO $ parseUrl (T.unpack $ T.append urlBase link)
   res <- http req manager
   responseBody res C.$$+- sinkFile $ createFileName (T.unpack link)
